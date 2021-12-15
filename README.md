@@ -6,7 +6,8 @@ n is the length of the longest key in the tree. This implementation is not
 thread safe.
 
 The main branch now requires Go 1.18 because the radix tree makes use of generic
-type parameters. For a version that works on Go 1.17 and below see the v1.0 tag.
+type parameters. For a version that works on Go 1.17 and below see the v1.0.0
+tag.
 
 ## Basic Usage
 
