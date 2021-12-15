@@ -3,7 +3,7 @@ package radixtree
 import "fmt"
 
 func ExampleRadixTree_Contains() {
-	t := New()
+	t := New[int]()
 	t.Insert([]byte("John"), 1)
 	fmt.Println(t.Contains([]byte("John")))
 	fmt.Println(t.Contains([]byte("Bill")))
@@ -13,7 +13,7 @@ func ExampleRadixTree_Contains() {
 }
 
 func ExampleRadixTree_Find() {
-	t := New()
+	t := New[int]()
 	t.Insert([]byte("John"), 1)
 	t.Insert([]byte("Jonathan"), 2)
 
@@ -24,7 +24,7 @@ func ExampleRadixTree_Find() {
 }
 
 func ExampleRadixTree_Get() {
-	t := New()
+	t := New[int]()
 	t.Insert([]byte("John"), 1)
 
 	v, found := t.Get([]byte("John"))
@@ -36,7 +36,7 @@ func ExampleRadixTree_Get() {
 }
 
 func ExampleRadixTree_Insert() {
-	t := New()
+	t := New[int]()
 	old, found := t.Insert([]byte("John"), 1)
 	fmt.Println(old)
 	fmt.Println(found)
@@ -45,14 +45,14 @@ func ExampleRadixTree_Insert() {
 	fmt.Println(old)
 	fmt.Println(found)
 	// Output:
-	// <nil>
+	// 0
 	// false
 	// 1
 	// true
 }
 
 func ExampleRadixTree_LongestPrefix() {
-	t := New()
+	t := New[int]()
 	t.Insert([]byte("Eric"), 1)
 	v, found := t.LongestPrefix([]byte("Ericson"))
 	fmt.Println(v)
@@ -63,7 +63,7 @@ func ExampleRadixTree_LongestPrefix() {
 }
 
 func ExampleRadixTree_Max() {
-	t := New()
+	t := New[int]()
 	t.Insert([]byte("Aaron"), 1)
 	t.Insert([]byte("Zaire"), 2)
 	v, found := t.Max()
@@ -75,7 +75,7 @@ func ExampleRadixTree_Max() {
 }
 
 func ExampleRadixTree_Min() {
-	t := New()
+	t := New[int]()
 	t.Insert([]byte("Aaron"), 1)
 	t.Insert([]byte("Zaire"), 2)
 	v, found := t.Min()
@@ -87,7 +87,7 @@ func ExampleRadixTree_Min() {
 }
 
 func ExampleRadixTree_Predecessor() {
-	t := New()
+	t := New[int]()
 	t.Insert([]byte("Aaron"), 1)
 	t.Insert([]byte("Zaire"), 2)
 	v, found := t.Predecessor([]byte("Zaire"))
@@ -99,7 +99,7 @@ func ExampleRadixTree_Predecessor() {
 }
 
 func ExampleRadixTree_Remove() {
-	t := New()
+	t := New[int]()
 	t.Insert([]byte("Aaron"), 1)
 	v, found := t.Remove([]byte("Aaron"))
 	fmt.Println(v)
@@ -112,7 +112,7 @@ func ExampleRadixTree_Remove() {
 }
 
 func ExampleRadixTree_Successor() {
-	t := New()
+	t := New[int]()
 	t.Insert([]byte("Aaron"), 1)
 	t.Insert([]byte("Zaire"), 2)
 	v, found := t.Successor([]byte("Aaron"))
@@ -124,7 +124,7 @@ func ExampleRadixTree_Successor() {
 }
 
 func ExampleRadixTree_Values() {
-	t := New()
+	t := New[int]()
 	t.Insert([]byte("Zaire"), 0)
 	t.Insert([]byte("Aaron"), 1)
 	t.Insert([]byte("Erica"), 2)

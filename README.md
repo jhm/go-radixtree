@@ -1,15 +1,18 @@
-# go-radixtree [![Actions Status](https://github.com/jhm/go-radixtree/workflows/Main/badge.svg)](https://github.com/jhm/go-radixtree/actions)
+# go-radixtree
 
 An implementation of a mutable radix tree that uses byte slices for keys.
 Insertion, deletion and searching operations all have a worst case of O(n) where
 n is the length of the longest key in the tree. This implementation is not
 thread safe.
 
+The main branch now requires Go 1.18 because the radix tree makes use of generic
+type parameters. For a version that works on Go 1.17 and below see the v1.0 tag.
+
 ## Basic Usage
 
 ```golang
 // Creating a radix tree.
-t := radixtree.New()
+t := radixtree.New[int]()
 
 // Insert some values.
 t.Insert([]byte{192, 1}, 0)
@@ -32,6 +35,5 @@ See the Godocs for the rest of the API.
 
 ## Future Changes
 
-Upon the release of Go 1.18 the radix tree and its API will make use of generic
-type parameters and the tests will most likely be updated to use the new fuzzing
-API.
+The tests will most likely be updated to use the new fuzzing API released in Go
+1.18.
